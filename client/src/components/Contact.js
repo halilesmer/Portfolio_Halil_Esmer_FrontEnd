@@ -13,35 +13,37 @@ import React, { useState } from "react";
 import useFetch from './UseFetch.js';
 import TransitionAlerts from './TransitionAlerts.js';
 
+
 export const Contact = () => {
-  const { post } = useFetch('http://localhost:4000/');
+  const { post } = useFetch('http://localhost:4000');
   //const { post } = useFetch('https://portfolio-halil.herokuapp.com/');
   const [open, setOpen] = useState(false);
 
   const [firstN, setFirstN] = useState("")
+  console.log("firstN: ", firstN);
+
   const [lastN, setLastN] = useState('')
   const [phoneN, setPhoneN] = useState('')
   const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
   const [subjectText, setSubjectText] = useState('')
+  const [message, setMessage] = useState('')
 
 
-  function sendMessage(event) {
-    event.preventDefault();
-    post("send_mail/", {
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    post("/send_mail", {
       firstN, lastN, phoneN, email, subjectText, message
     }).then(data => {
       console.log(data);
     }).catch(error => console.error(error));
-    event.target.reset();
+    e.target.reset();
     setFirstN(''); setLastN(''); setPhoneN(''); setEmail(''); setMessage(''); setSubjectText('');
     setOpen(true)
     setTimeout(() => {
       setOpen(false)
     }, 2000)
+
   }
-
-
 
   return (
     <Box id="contact">
@@ -51,7 +53,7 @@ export const Contact = () => {
           Contact Form
         </Typography>
 
-        <TransitionAlerts open={open}  />
+        <TransitionAlerts open={open} />
 
         <Card style={{ maxWidth: 650, minWidth: 250, background: '#fbf2d9', margin: '0 auto', padding: '20px 5px' }}>
           <CardContent>
@@ -80,7 +82,7 @@ export const Contact = () => {
                   <TextField label="Message" multiline rows={4} placeholder="Type your phone message" variant="outlined" fullWidth required value={message} onChange={(e) => setMessage(e.target.value)} />
                 </Grid>
                 <Grid xs={12} item>
-                  <Button style={{background: '#373737'}} type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
+                  <Button style={{ background: '#373737' }} type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
                 </Grid>
               </Grid>
 

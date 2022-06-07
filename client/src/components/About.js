@@ -4,9 +4,9 @@ import { Box } from '@mui/system'
 
 export const About = () => {
 
-  const [posts, setPosts] = useState([]);
+ // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
+/*   useEffect(() => {
     const fecthPosts = async () => {
       try {
         const res = await fetch(`/api/v1/posts`);
@@ -18,23 +18,23 @@ export const About = () => {
     };
 
     fecthPosts();
-  }, []);
+  }, []); */
 
 
   return (
     <Box id="about">
-      <Container maxWidth="lm">
+      {/* <Container maxWidth="lm">
         {posts && posts.map((post, index) => {
           return (
             <div key={index}>
               <h1>{post.title}</h1>
-              <p>{post.text1}</p>
-              <p>{post.contact1}</p>
+              <p>{post.description_1}</p>
+              <p>{post.contact_1}</p>
             </div>
           )
         })}
 
-      </Container>
+      </Container> */}
     </Box>
   );
 

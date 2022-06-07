@@ -1,15 +1,15 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const postSchema = new mongoose.Schema({
+const aboutSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, "Please provide a title"],
     },
-    text1: {
+    description_1: {
         type: String,
         required: [true, "Please provide a text"],
     },
-    contact1: {
+    contact_1: {
         type: String,
         required: [true, "Please provide a text"],
     },
@@ -19,6 +19,6 @@ const postSchema = new mongoose.Schema({
     }
 });
 
-const Post = mongoose.model("Post", postSchema);
+const AboutSchema = mongoose.model("about", aboutSchema);
 
-module.exports = Post;
+export default  AboutSchema;
