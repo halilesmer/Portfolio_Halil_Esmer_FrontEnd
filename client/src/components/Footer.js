@@ -13,7 +13,10 @@ export const Footer=()=> {
             width: "fit-content",
             margin: "0 auto",
             lineHeight: "6vh",
-            height: "5vh",
+            height: "6vh",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
           <NavLink
@@ -26,7 +29,14 @@ export const Footer=()=> {
             </Button>
           </NavLink>
           <span>|</span>
-          <Link href="mailto:halilesmer3655@gmail.com" underline="none">
+          <Link 
+          href="mailto:halilesmer3655@gmail.com" underline="none"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+          >
             <MailOutlinedIcon fontSize="small" />
           </Link>
         </Box>

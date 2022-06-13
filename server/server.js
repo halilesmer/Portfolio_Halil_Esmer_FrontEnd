@@ -29,7 +29,7 @@ app.use(bodyParser.json())
 
 
 
-let testAccount = await nodemailer.createTestAccount();
+/* let testAccount = await nodemailer.createTestAccount(); */
 
 app.post("/send_mail", cors(), async (req, res) => {
     let { firstN, lastN, phoneN, email, subjectText, message } = req.body

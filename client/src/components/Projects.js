@@ -10,15 +10,12 @@ import {
   Typography,
   Link,
 } from "@mui/material";
+import GitHubIcon from '@mui/icons-material/GitHub';
 import * as React from "react";
-import daten from "./daten.json";
-/* 
-import imgBookFolio from '../assets/screenshots/book_folio.webp'
-import imgFilterApp from '../assets/screenshots/filter_app.webp'
-import imgMangEmpl from '../assets/screenshots/manage_employees.webp'
-import imgSilvConct from '../assets/screenshots/silver_connect.webp'
-import imgSuperM from '../assets/screenshots/superM.webp' */
-import imgDemkupu from '../assets/screenshots/dem_kupu.webp'
+import { DATA } from './data.js';
+
+
+/* import imgDemkupu from '../assets/screenshots/dem_kupu.webp' */
 
 export const Projects = () => {
 
@@ -28,7 +25,7 @@ export const Projects = () => {
     maxHeight: '650',
     boxShadow: 5,
     p: 1,
-margin: 0,
+    margin: 0,
   };
 
   return (
@@ -43,46 +40,54 @@ margin: 0,
           columns={{ xs: 4, sm: 8, md: 12 }}
           style={{ minHeight: "100vh" }}
         >
-             { daten && daten.map((item, index) => (
-  <Grid item xs={2} sm={4} md={4} key={index}
-            style={{ height: "fit-content" }}>
+          {DATA && DATA.english.projects.map((data, index) => (
+            <Grid item xs={12} sm={4} md={6} key={index}
+              style={{ height: "fit-content" }}>
               <Card sx={styleCard}>
                 <Link
-                  href={item.link}
+                  href={data.link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <CardMedia
                     component="img"
                     height="140"
-                    image={imgDemkupu}
-                  // image={item.img}
+                    image={data?.img}
                     alt="green iguana"
-                    style={{height:'300px'}}
+                    style={{ height: '300px' }}
                   />
                 </Link>
 
                 <CardContent>
-                  <Typography className="cardHeader"  gutterBottom variant="h5" component="div">
-                    {item.title}
+                  <Typography className="cardHeader" gutterBottom variant="h5" component="div">
+                    {data?.title}
                   </Typography>
-                  <Typography  variant="body2" component='p' color="text.secondary">
-                    {item.description}
+                  <Typography variant="body2" component='p' color="text.secondary">
+                    {data?.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button
-                    href={item.link}
+                    href={data?.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     size="small"
                   >
                     Show
                   </Button>
+                  <Button
+                    href={data?.git}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="small"
+                  >
+                    
+<GitHubIcon/>
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
-            
+
           ))}
         </Grid>
       </Container>

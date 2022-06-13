@@ -1,30 +1,14 @@
-import { useState, useEffect } from "react";
+
 import { Container } from '@mui/material';
 import { Box } from '@mui/system'
+import {DATA} from './data.js';
 
 export const About = () => {
 
- // const [posts, setPosts] = useState([]);
-
-/*   useEffect(() => {
-    const fecthPosts = async () => {
-      try {
-        const res = await fetch(`/api/v1/posts`);
-        const { data } = await res.json();
-        setPosts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fecthPosts();
-  }, []); */
-
-
   return (
     <Box id="about">
-      {/* <Container maxWidth="lm">
-        {posts && posts.map((post, index) => {
+      <Container maxWidth="lm">
+        {DATA && DATA.english.about.map((post, index) => {
           return (
             <div key={index}>
               <h1>{post.title}</h1>
@@ -34,7 +18,7 @@ export const About = () => {
           )
         })}
 
-      </Container> */}
+      </Container>
     </Box>
   );
 

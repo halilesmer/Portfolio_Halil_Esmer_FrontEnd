@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 })
 
 //get single about from database
-router.get('/:id', async (req, res) => {
+/* router.get('/:id', async (req, res) => {
 
     try {
         const { id } = req.params;
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
         res.status(404).json({ message: 'About not found' });
     }
 
-})
+}) */
 
 //creat a about
 router.post('/', async (req, res) => {
